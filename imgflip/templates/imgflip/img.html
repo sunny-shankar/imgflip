@@ -1,0 +1,39 @@
+{% extends 'imgflip/base.html' %}
+
+{% block main %}
+{%if result%}
+<div class="container text-center">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card card-body text-center">
+                <img src="{{result.url}}" alt="{{result.name}}">
+            </div>
+        </div>
+        <div class="col-md-9 py-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Url</th>
+                        <th scope="col">Width</th>
+                        <th scope="col">Height</th>
+                        <th scope="col">Box Count</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{result.name}}</td>
+                        <td><a href="{{result.url}}">{{result.url}}</a></td>
+                        <td>{{result.width}}</td>
+                        <td>{{result.height}}</td>
+                        <td>{{result.box_count}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{%else%}
+<p>Error...</p>
+{%endif%}
+{% endblock %}

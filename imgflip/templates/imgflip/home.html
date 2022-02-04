@@ -1,0 +1,15 @@
+{% extends 'imgflip/base.html' %}
+
+{% block main %}
+{% if results %}
+<div class="container px-5">
+    {% for result in results %}
+    <p>
+        <a href="{% url 'memes' result.id %}">{{result.name}}</a>
+    </p>
+    {% endfor %}
+    {%else%}
+    <p>No data in Database.Please go to <a href="{% url 'update_db' %}">Link</a> to populate db</p>
+</div>
+{% endif %}
+{% endblock %}
